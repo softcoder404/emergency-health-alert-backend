@@ -1,0 +1,42 @@
+{
+  "name": "emergency-health-alert-backend",
+  "version": "1.0.0",
+  "description": "A simple emergency health alert system backend build with nodejs, express and firebase firestore",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development nodemon server",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softcoder404/emergency-health-alert-backend.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "Firebase",
+    "Firestore",
+    "Heroku"
+  ],
+  "author": "Softcoder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/softcoder404/emergency-health-alert-backend/issues"
+  },
+  "homepage": "https://github.com/softcoder404/emergency-health-alert-backend#readme",
+  "dependencies": {
+    "bcrypt": "5.0.1",
+    "cors": "2.8.5",
+    "cross-env": "7.0.3",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
+    "firebase-admin": "9.11.0",
+    "jsonwebtoken": "8.5.1",
+    "morgan": "1.10.0",
+    "multer": "1.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.12"
+  }
+}
