@@ -106,7 +106,7 @@ exports.createUser = (req, res) => {
         })
 }
 
-exports.login = (req, res, next) => {
+exports.login = (req, res) => {
     UserSchema.findOne({
         matric: req.body.matric
     }).exec().then(user => {
@@ -124,8 +124,6 @@ exports.login = (req, res, next) => {
                     }, process.env.JWT_KEY, {
                         expiresIn: "1h"
                     });
-                    console.log(`jwt key: ${process.env.JWT_KEY}`)
-                    console.log(token);
 
                 return apiResponse.successResponseWithData(res,"User Logged In Successfully",{
                         token:token,
@@ -183,7 +181,7 @@ exports.forgotPassword = (req, res) => {
         console.log(token);
         UserSchema.findOneAndUpdate({matric: matric},{ $set: {resetPasswordToken: token}}).exec().then(result => {
 
-                SMSService.sendSMS(`Your password reset token: ${token}`,"+2348102809969").then(onSent => {
+                SMSService.sendSMS(`Your password reset token: ${token}`,result.phone).then(onSent => {
                         return apiResponse.successResponseWithData(res,'Password reset token sent.',onSent);
 
                 }).catch(err => {
